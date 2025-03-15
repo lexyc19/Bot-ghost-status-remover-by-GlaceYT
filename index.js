@@ -37,8 +37,8 @@ app.listen(port, () => {
   console.log('\x1b[36m[ SERVER ]\x1b[0m', '\x1b[32m SH : http://localhost:' + port + ' ✅\x1b[0m');
 });
 
-const statusMessages = ["🎧 Listening to Spotify", "🎮 Playing VALORANT"];
-const statusTypes = [ 'dnd', 'idle'];
+const statusMessages = ["我永远会站在你身边", "我永远会站在你身边"];
+const statusTypes = [ 'online', 'online'];
 let currentStatusIndex = 0;
 let currentTypeIndex = 0;
 
@@ -54,16 +54,20 @@ async function login() {
   }
 }
 
+
 function updateStatus() {
-  const currentStatus = statusMessages[currentStatusIndex];
-  const currentType = statusTypes[currentTypeIndex];
-  client.user.setPresence({
-    activities: [{ name: currentStatus, type: ActivityType.Custom }],
-    status: currentType,
-  });
-  console.log('\x1b[33m[ STATUS ]\x1b[0m', `Updated status to: ${currentStatus} (${currentType})`);
-  currentStatusIndex = (currentStatusIndex + 1) % statusMessages.length;
-  currentTypeIndex = (currentTypeIndex + 1) % statusTypes.length;
+    const currentStatus = statusMessages[currentStatusIndex];
+    const currentType = statusTypes[currentTypeIndex];
+
+    client.user.setPresence({
+        activities: [{ name: currentStatus, type: ActivityType.Streaming, url: "https://www.twitch.tv/jaylvr" }],
+        status: currentType
+    });
+
+    console.log('\x1b[33m[ STATUS ]\x1b[0m', `Updated status to: ${currentStatus} (${currentType})`);
+
+    currentStatusIndex = (currentStatusIndex + 1) % statusMessages.length;
+    currentTypeIndex = (currentTypeIndex + 1) % statusTypes.length;
 }
 
 function heartbeat() {
