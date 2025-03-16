@@ -37,7 +37,7 @@ app.listen(port, () => {
   console.log('\x1b[36m[ SERVER ]\x1b[0m', '\x1b[32m SH : http://localhost:' + port + ' ✅\x1b[0m');
 });
 
-const statusMessages = ["我永远会站在你身边", "我永远会站在你身边"];
+const statusMessages = ["我希望他们永远都是我的好朋友", "我希望他们永远都是我的好朋友"];
 const statusTypes = [ 'online', 'online'];
 let currentStatusIndex = 0;
 let currentTypeIndex = 0;
